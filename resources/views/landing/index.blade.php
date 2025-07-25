@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Title -->
-    <title> Edmate Learning Dashboard HTML Template</title>
+    <title> Library App | SDN 3 Abianbase</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('admin') }}/assets/images/logo/favicon.png">
     <!-- Bootstrap -->
@@ -55,460 +55,69 @@
 
             <div class="card d-flex justify-content-center p-40">
 
-                <a href="index.html" class="sidebar__logo position-sticky inset-block-start-0 w-100 z-1 bg-white text-center">
+                <a href="/" class="sidebar__logo inset-block-start-0 w-100 z-1 bg-white text-center">
                     {{-- <img src="{{ asset('admin') }}/assets/images/logo/logo.png" alt="Logo"> --}}
-                    <img src="{{ asset('assets/logo_dark.png') }}" alt="Logo" width="200px">
-                    <hr>
+                    <img src="{{ asset('assets/logo_dark.png') }}" alt="Logo" width="100px">
+
+                    <h3 class="m-30">LIBRARY DIGITAL APP <br> SD NEGERI 3 ABIANBASE</h3>
                 </a>
 
-                <form action="#" class="w-100 d-sm-block d-none">
-                    <div class="position-relative">
-                        <button type="submit" class="input-icon d-flex pointer-event-none text-xl text-gray-100"><i class="ph ph-magnifying-glass"></i></button>
-                        <input type="text" class="form-control focus-border-main-600 bg-main-50 rounded-pill placeholder-15 h-40 border-transparent ps-40" placeholder="Search...">
-                    </div>
-                </form>
+                {{-- <form action="#" class="w-100 d-sm-block d-none"> --}}
+                <div class="position-relative">
+                    {{-- <button type="submit" class="input-icon d-flex pointer-event-none text-xl text-gray-100"><i class="ph ph-magnifying-glass"></i></button> --}}
+                    <input type="text" id="searchInput" class="form-control focus-border-main-600 bg-main-50 rounded-pill placeholder-15 h-40 border-transparent ps-40" placeholder="Cari Buku Berdasarkan Nama, Kategori & Kelas">
+                </div>
+                {{-- </form> --}}
             </div>
 
-            <div class="card mt-50 overflow-hidden">
+            <div class="card mt-50">
+                <div class="card-header border-bottom flex-align gap-8 border-gray-100" bis_skin_checked="1">
+                    <h5 class="mb-0">Cari Buku</h5>
+                </div>
                 <div class="card-body p-30">
-                    <table id="assignmentTable" class="table-striped table">
+                    <table id="myTable" class="table-striped table">
                         <thead>
                             <tr>
-                                <th class="fixed-width">
-                                    <div class="form-check">
-                                        <input class="form-check-input rounded-4 border-gray-200" type="checkbox"
-                                            id="selectAll">
-                                    </div>
-                                </th>
-                                <th class="h6 text-gray-300">Students</th>
-                                <th class="h6 text-gray-300">Lesson</th>
-                                <th class="h6 text-gray-300">Deadline</th>
-                                <th class="h6 text-gray-300">Sent</th>
-                                <th class="h6 text-gray-300">Status</th>
-                                <th class="h6 text-gray-300">Actions</th>
+                                <th class="h6 text-gray-300">No</th>
+                                <th class="h6 text-gray-300">Nama Buku</th>
+                                <th class="h6 text-gray-300">Kategori</th>
+                                <th class="h6 text-gray-300">Penerbit</th>
+                                <th class="h6 text-gray-300">Tahun Cetak</th>
+                                <th class="h6 text-gray-300">Kelas</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="fixed-width">
-                                    <div class="form-check">
-                                        <input class="form-check-input rounded-4 border-gray-200" type="checkbox">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="flex-align gap-8">
-                                        <img src="{{ asset('admin') }}/assets/images/thumbs/student-img1.png" alt=""
-                                            class="rounded-circle h-40 w-40">
-                                        <span class="h6 fw-medium mb-0 text-gray-300">Jane Cooper</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Web & Mobile Design</span>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Nov 18, 2024</span>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Nov 18, 2024</span>
-                                </td>
-                                <td>
-                                    <span
-                                        class="text-13 d-inline-flex align-items-center rounded-pill gap-8 bg-teal-50 px-8 py-2 text-teal-600">
-                                        <span class="rounded-circle h-6 w-6 flex-shrink-0 bg-teal-600"></span>
-                                        Send
-                                    </span>
-                                </td>
-                                <td>
-                                    <a href="#"
-                                        class="bg-main-50 text-main-600 rounded-pill hover-bg-main-600 hover-text-white px-14 py-2">View
-                                        More</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fixed-width">
-                                    <div class="form-check">
-                                        <input class="form-check-input rounded-4 border-gray-200" type="checkbox">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="flex-align gap-8">
-                                        <img src="{{ asset('admin') }}/assets/images/thumbs/student-img2.png" alt=""
-                                            class="rounded-circle h-40 w-40">
-                                        <span class="h6 fw-medium mb-0 text-gray-300">Albert Flores</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Graphics Design</span>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Dec 18, 2024</span>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Feb 18, 2025</span>
-                                </td>
-                                <td>
-                                    <span
-                                        class="text-13 bg-warning-50 text-warning-600 d-inline-flex align-items-center rounded-pill gap-8 px-8 py-2">
-                                        <span class="bg-warning-600 rounded-circle h-6 w-6 flex-shrink-0"></span>
-                                        Checking
-                                    </span>
-                                </td>
-                                <td>
-                                    <a href="#"
-                                        class="bg-main-50 text-main-600 rounded-pill hover-bg-main-600 hover-text-white px-14 py-2">View
-                                        More</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fixed-width">
-                                    <div class="form-check">
-                                        <input class="form-check-input rounded-4 border-gray-200" type="checkbox">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="flex-align gap-8">
-                                        <img src="{{ asset('admin') }}/assets/images/thumbs/student-img3.png" alt=""
-                                            class="rounded-circle h-40 w-40">
-                                        <span class="h6 fw-medium mb-0 text-gray-300">Leslie Alexander</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Figma</span>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Feb 18, 2024</span>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Nov 18, 2024</span>
-                                </td>
-                                <td>
-                                    <span
-                                        class="text-13 d-inline-flex align-items-center rounded-pill gap-8 bg-purple-50 px-8 py-2 text-purple-600">
-                                        <span class="rounded-circle h-6 w-6 flex-shrink-0 bg-purple-600"></span>
-                                        Assigned
-                                    </span>
-                                </td>
-                                <td>
-                                    <a href="#"
-                                        class="bg-main-50 text-main-600 rounded-pill hover-bg-main-600 hover-text-white px-14 py-2">View
-                                        More</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fixed-width">
-                                    <div class="form-check">
-                                        <input class="form-check-input rounded-4 border-gray-200" type="checkbox">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="flex-align gap-8">
-                                        <img src="{{ asset('admin') }}/assets/images/thumbs/student-img4.png" alt=""
-                                            class="rounded-circle h-40 w-40">
-                                        <span class="h6 fw-medium mb-0 text-gray-300">Guy Hawkins</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Creating Web Design</span>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">June 18, 2024</span>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">June 21, 2024</span>
-                                </td>
-                                <td>
-                                    <span
-                                        class="text-13 bg-danger-50 text-danger-600 d-inline-flex align-items-center rounded-pill gap-8 px-8 py-2">
-                                        <span class="bg-danger-600 rounded-circle h-6 w-6 flex-shrink-0"></span>
-                                        Decline
-                                    </span>
-                                </td>
-                                <td>
-                                    <a href="#"
-                                        class="bg-main-50 text-main-600 rounded-pill hover-bg-main-600 hover-text-white px-14 py-2">View
-                                        More</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fixed-width">
-                                    <div class="form-check">
-                                        <input class="form-check-input rounded-4 border-gray-200" type="checkbox">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="flex-align gap-8">
-                                        <img src="{{ asset('admin') }}/assets/images/thumbs/student-img5.png" alt=""
-                                            class="rounded-circle h-40 w-40">
-                                        <span class="h6 fw-medium mb-0 text-gray-300">Jacob Jones</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Complete Wordpress Course</span>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">June 18, 2024</span>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">July 18, 2024</span>
-                                </td>
-                                <td>
-                                    <span
-                                        class="text-13 d-inline-flex align-items-center rounded-pill gap-8 bg-green-50 px-8 py-2 text-green-600">
-                                        <span class="rounded-circle h-6 w-6 flex-shrink-0 bg-green-600"></span>
-                                        Accepted
-                                    </span>
-                                </td>
-                                <td>
-                                    <a href="#"
-                                        class="bg-main-50 text-main-600 rounded-pill hover-bg-main-600 hover-text-white px-14 py-2">View
-                                        More</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fixed-width">
-                                    <div class="form-check">
-                                        <input class="form-check-input rounded-4 border-gray-200" type="checkbox">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="flex-align gap-8">
-                                        <img src="{{ asset('admin') }}/assets/images/thumbs/student-img2.png" alt=""
-                                            class="rounded-circle h-40 w-40">
-                                        <span class="h6 fw-medium mb-0 text-gray-300">Guy Hawkins</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Webflow Essentials Course</span>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Aug 18, 2024</span>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Sep 18, 2024</span>
-                                </td>
-                                <td>
-                                    <span
-                                        class="text-13 bg-success-50 text-success-600 d-inline-flex align-items-center rounded-pill gap-8 px-8 py-2">
-                                        <span class="bg-success-600 rounded-circle h-6 w-6 flex-shrink-0"></span>
-                                        Active
-                                    </span>
-                                </td>
-                                <td>
-                                    <a href="#"
-                                        class="bg-main-50 text-main-600 rounded-pill hover-bg-main-600 hover-text-white px-14 py-2">View
-                                        More</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fixed-width">
-                                    <div class="form-check">
-                                        <input class="form-check-input rounded-4 border-gray-200" type="checkbox">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="flex-align gap-8">
-                                        <img src="{{ asset('admin') }}/assets/images/thumbs/student-img1.png" alt=""
-                                            class="rounded-circle h-40 w-40">
-                                        <span class="h6 fw-medium mb-0 text-gray-300">Jacob Jones</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Beginners Guide to Design</span>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Sep 18, 2024</span>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Sep 22, 2024</span>
-                                </td>
-                                <td>
-                                    <span
-                                        class="text-13 d-inline-flex align-items-center rounded-pill gap-8 bg-pink-50 px-8 py-2 text-pink-600">
-                                        <span class="rounded-circle h-6 w-6 flex-shrink-0 bg-pink-600"></span>
-                                        Not Submitted
-                                    </span>
-                                </td>
-                                <td>
-                                    <a href="#"
-                                        class="bg-main-50 text-main-600 rounded-pill hover-bg-main-600 hover-text-white px-14 py-2">View
-                                        More</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fixed-width">
-                                    <div class="form-check">
-                                        <input class="form-check-input rounded-4 border-gray-200" type="checkbox">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="flex-align gap-8">
-                                        <img src="{{ asset('admin') }}/assets/images/thumbs/student-img5.png" alt=""
-                                            class="rounded-circle h-40 w-40">
-                                        <span class="h6 fw-medium mb-0 text-gray-300">Albert Flores</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">AngularJS Crash Course </span>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Oct 19, 2024</span>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Nov 18, 2024</span>
-                                </td>
-                                <td>
-                                    <span
-                                        class="text-13 bg-success-50 text-success-600 d-inline-flex align-items-center rounded-pill gap-8 px-8 py-2">
-                                        <span class="bg-success-600 rounded-circle h-6 w-6 flex-shrink-0"></span>
-                                        Active
-                                    </span>
-                                </td>
-                                <td>
-                                    <a href="#"
-                                        class="bg-main-50 text-main-600 rounded-pill hover-bg-main-600 hover-text-white px-14 py-2">View
-                                        More</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fixed-width">
-                                    <div class="form-check">
-                                        <input class="form-check-input rounded-4 border-gray-200" type="checkbox">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="flex-align gap-8">
-                                        <img src="{{ asset('admin') }}/assets/images/thumbs/student-img3.png" alt=""
-                                            class="rounded-circle h-40 w-40">
-                                        <span class="h6 fw-medium mb-0 text-gray-300">Jenny Wilson</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Complete Wordpress Course</span>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Sep 18, 2024</span>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Dec 18, 2024</span>
-                                </td>
-                                <td>
-                                    <span
-                                        class="text-13 bg-success-50 text-success-600 d-inline-flex align-items-center rounded-pill gap-8 px-8 py-2">
-                                        <span class="bg-success-600 rounded-circle h-6 w-6 flex-shrink-0"></span>
-                                        Active
-                                    </span>
-                                </td>
-                                <td>
-                                    <a href="#"
-                                        class="bg-main-50 text-main-600 rounded-pill hover-bg-main-600 hover-text-white px-14 py-2">View
-                                        More</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fixed-width">
-                                    <div class="form-check">
-                                        <input class="form-check-input rounded-4 border-gray-200" type="checkbox">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="flex-align gap-8">
-                                        <img src="{{ asset('admin') }}/assets/images/thumbs/student-img4.png" alt=""
-                                            class="rounded-circle h-40 w-40">
-                                        <span class="h6 fw-medium mb-0 text-gray-300">Sunny Maria</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Responsive Web Design</span>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Nov 18, 2024</span>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Oct 18, 2024</span>
-                                </td>
-                                <td>
-                                    <span
-                                        class="text-13 bg-success-50 text-success-600 d-inline-flex align-items-center rounded-pill gap-8 px-8 py-2">
-                                        <span class="bg-success-600 rounded-circle h-6 w-6 flex-shrink-0"></span>
-                                        Active
-                                    </span>
-                                </td>
-                                <td>
-                                    <a href="#"
-                                        class="bg-main-50 text-main-600 rounded-pill hover-bg-main-600 hover-text-white px-14 py-2">View
-                                        More</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fixed-width">
-                                    <div class="form-check">
-                                        <input class="form-check-input rounded-4 border-gray-200" type="checkbox">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="flex-align gap-8">
-                                        <img src="{{ asset('admin') }}/assets/images/thumbs/student-img5.png" alt=""
-                                            class="rounded-circle h-40 w-40">
-                                        <span class="h6 fw-medium mb-0 text-gray-300">Eleanor Pena</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Theme Development</span>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Oct 18, 2024</span>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Dec 20, 2024</span>
-                                </td>
-                                <td>
-                                    <span
-                                        class="text-13 bg-success-50 text-success-600 d-inline-flex align-items-center rounded-pill gap-8 px-8 py-2">
-                                        <span class="bg-success-600 rounded-circle h-6 w-6 flex-shrink-0"></span>
-                                        Active
-                                    </span>
-                                </td>
-                                <td>
-                                    <a href="#"
-                                        class="bg-main-50 text-main-600 rounded-pill hover-bg-main-600 hover-text-white px-14 py-2">View
-                                        More</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fixed-width">
-                                    <div class="form-check">
-                                        <input class="form-check-input rounded-4 border-gray-200" type="checkbox">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="flex-align gap-8">
-                                        <img src="{{ asset('admin') }}/assets/images/thumbs/student-img1.png" alt=""
-                                            class="rounded-circle h-40 w-40">
-                                        <span class="h6 fw-medium mb-0 text-gray-300">Albert Flores</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Complete Python Bootcamp</span>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Nov 18, 2024</span>
-                                </td>
-                                <td>
-                                    <span class="h6 fw-medium mb-0 text-gray-300">Dec 18, 2024</span>
-                                </td>
-                                <td>
-                                    <span
-                                        class="text-13 bg-success-50 text-success-600 d-inline-flex align-items-center rounded-pill gap-8 px-8 py-2">
-                                        <span class="bg-success-600 rounded-circle h-6 w-6 flex-shrink-0"></span>
-                                        Active
-                                    </span>
-                                </td>
-                                <td>
-                                    <a href="#"
-                                        class="bg-main-50 text-main-600 rounded-pill hover-bg-main-600 hover-text-white px-14 py-2">View
-                                        More</a>
-                                </td>
-                            </tr>
+                            @foreach ($data_buku as $buku)
+                                <tr>
+                                    <td class="fixed-width">
+                                        <span class="h6 fw-medium mb-0 text-gray-300">{{ $loop->iteration }}</span>
+                                    </td>
+                                    <td>
+                                        <div class="flex-align gap-8">
+                                            <img src="{{ asset('admin') }}/assets/images/thumbs/student-img1.png" alt=""
+                                                class="rounded-circle h-40 w-40">
+                                            <span class="h6 fw-bold mb-0 text-gray-400">{{ $buku->nama_buku }}</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="h6 fw-medium mb-0 text-gray-300">{{ $buku->nama_kategori }}</span>
+                                    </td>
+                                    <td>
+                                        <span class="h6 fw-medium text-capitalize mb-0 text-gray-300">{{ $buku->penerbit }}</span>
+                                    </td>
+                                    <td>
+                                        <span class="h6 fw-medium mb-0 text-gray-300">{{ $buku->tahun_cetak }}</span>
+                                    </td>
+                                    <td>
+                                        <span
+                                            class="text-13 d-inline-flex align-items-center rounded-pill bg-success-50 text-success-600 gap-8 px-8 py-2">
+                                            <span class="rounded-circle bg-success-600 h-6 w-6 flex-shrink-0"></span>
+                                            {{ $buku->kelas }}
+                                        </span>
+                                    </td>
+                                </tr>
+                            @endforeach
+
                         </tbody>
                     </table>
                 </div>
@@ -545,15 +154,8 @@
             <div class="flex-between flex-wrap gap-16">
                 <p class="text-13 fw-normal text-gray-300"> &copy; Copyright Edmate 2024, All Right Reserverd</p>
                 <div class="flex-align flex-wrap gap-16">
-                    <a href="#"
-                        class="text-13 fw-normal hover-text-main-600 hover-text-decoration-underline text-gray-300">License</a>
-                    <a href="#"
-                        class="text-13 fw-normal hover-text-main-600 hover-text-decoration-underline text-gray-300">More
-                        Themes</a>
-                    <a href="#"
-                        class="text-13 fw-normal hover-text-main-600 hover-text-decoration-underline text-gray-300">Documentation</a>
-                    <a href="#"
-                        class="text-13 fw-normal hover-text-main-600 hover-text-decoration-underline text-gray-300">Support</a>
+                    <a href="{{ route('login') }}"
+                        class="text-13 fw-normal hover-text-main-600 hover-text-decoration-underline text-gray-300">Admin Panel</a>
                 </div>
             </div>
         </div>
@@ -588,6 +190,27 @@
 
     <!-- main js -->
     <script src="{{ asset('admin') }}/assets/js/main.js"></script>
+
+    <script>
+        const searchColumns = [1, 2, 5]; // Index kolom yang ingin dicari (nama & email)
+
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            const filter = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#myTable tbody tr');
+
+            rows.forEach(row => {
+                let isVisible = false;
+                searchColumns.forEach(index => {
+                    const cellText = row.cells[index].textContent.toLowerCase();
+                    if (cellText.includes(filter)) {
+                        isVisible = true;
+                    }
+                });
+
+                row.style.display = isVisible ? '' : 'none';
+            });
+        });
+    </script>
 
     <script>
         // ========================== Export Js Start ==============================

@@ -26,6 +26,14 @@ class BookController extends Controller
     {
         // dd($request->all());
 
+        // Image Upload Handler
+        if ($request->gambar_buku === null) {
+            $gambarBuku = null;
+        } else {
+            $gambarBuku = 'foto_' . $request->nama_buku . '.' . $request->gambar_buku->extension();
+            $request->gambar_buku->move(public_path('img/gambar_buku'), $gambarBuku);
+        }
+
         BooksModel::create([
             'nama_buku' => $request->nama_buku,
             'pengarang' => $request->pengarang,
@@ -37,6 +45,7 @@ class BookController extends Controller
             'jumlah' => $request->jumlah,
             'tahun_penerimaan' => $request->tahun_penerimaan,
             'id_kategori' => $request->kategori_buku,
+            'image' => $gambarBuku,
         ]);
 
         $flashData = [

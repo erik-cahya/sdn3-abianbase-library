@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('jumlah')->nullable();
             $table->string('tahun_penerimaan')->nullable();
             $table->string('id_kategori')->nullable();
+            $table->text('image')->nullable();
             $table->timestamps();
         });
     }

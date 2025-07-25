@@ -76,7 +76,8 @@
                                 <div class="card-body p-8">
                                     <a href="course-details.html"
                                         class="bg-main-100 rounded-8 h-164 flex-center mb-8 overflow-hidden p-8 text-center">
-                                        <img src="{{ asset('admin') }}/assets/images/thumbs/course-img1.png" alt="Course Image">
+                                        <img src="{{ isset($buku->image) ? asset('img/gambar_buku/' . $buku->image) : 'https://placehold.co/600x400?text=Book%20Images' }}" alt="Course Image">
+                                        {{-- <img src="https://placehold.co/600x400?text=Book%20Images" alt="Course Image"> --}}
                                     </a>
                                     <div class="p-8">
                                         <div class="d-flex justify-content-between">
@@ -85,7 +86,7 @@
                                             <span class="text-13 rounded-pill bg-warning-50 text-warning-600 mb-16 px-10 py-2">{{ $buku->kelas }}</span>
                                         </div>
 
-                                        <h5 class="mb-0"><a href="course-details.html" class="hover-text-main-600">{{ Str::limit($buku->nama_buku, 40) }}</a></h5>
+                                        <h5 class="mb-0"><a href="course-details.html" class="hover-text-main-600" style="min-height: 50px">{{ Str::limit($buku->nama_buku, 40) }}</a></h5>
 
                                         <div class="flex-align mt-16 flex-wrap gap-8">
                                             <img src="{{ asset('admin') }}/assets/images/thumbs/user-img1.png"
@@ -106,14 +107,9 @@
                                         </div>
 
                                         <div class="flex-between mt-24 flex-wrap gap-4">
-                                            <div class="flex-align gap-4">
-                                                <span class="text-15 fw-bold text-warning-600 d-flex"><i
-                                                        class="ph-fill ph-star"></i></span>
-                                                <span class="text-13 fw-bold text-gray-600">4.9</span>
-                                                <span class="text-13 fw-bold text-gray-600">(12k)</span>
-                                            </div>
-                                            <a href="course-details.html"
-                                                class="btn btn-outline-main rounded-pill py-9">View Details</a>
+
+                                            <a href="course-details.html" class="btn btn-danger rounded-pill py-9">Delete</a>
+                                            <a href="course-details.html" class="btn btn-outline-main rounded-pill py-9">Details</a>
                                         </div>
                                     </div>
                                 </div>

@@ -34,15 +34,20 @@
                 </button>
             </div>
             <div class="card-body">
-                <form action="{{ route('buku.store') }}" method="POST">
+                <form action="{{ route('buku.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row gy-20">
                         <div class="col-xxl-3 col-md-4 col-sm-5">
                             <div class="mb-20">
-                                <label class="h5 fw-semibold font-heading mb-0">Gambar Buku <span
+                                <label class="h5 fw-semibold font-heading mb-0" for="gambar_buku">Gambar Buku <span
                                         class="text-13 fw-medium text-gray-400">(Opsional)</span> </label>
                             </div>
-                            <div id="fileUpload" class="fileUpload image-upload"></div>
+                            {{-- <div id="fileUpload" class="fileUpload image-upload"></div> --}}
+
+                            <input type="file" class="" id="gambar_buku" name="gambar_buku" onchange="previewImage()">
+
+                            <img src="{{ asset('admin/assets/images/thumbs/course-img2.png') }}" class="gambar_buku img-thumbnail mt-30" width="200px">
+
                         </div>
                         <div class="col-xxl-9 col-md-8 col-sm-7">
                             <div class="row g-20">
@@ -171,3 +176,20 @@
         <!-- Course Tab End -->
     </div>
 @endsection
+@push('script')
+    <script>
+        // untuk membuat preview gambar
+        function previewImage() {
+            const image = document.querySelector('#gambar_buku');
+            const imgPreview = document.querySelector('.gambar_buku');
+
+            imgPreview.style.display = 'block';
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
+    </script>
+@endpush
