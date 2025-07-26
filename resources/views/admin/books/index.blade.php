@@ -178,13 +178,13 @@
                     let propertyId = this.parentElement.querySelector('.propertyId').value;
 
                     Swal.fire({
-                        title: 'Are you sure?',
-                        text: "Delete property " + propertyId + "?",
+                        title: 'Anda Yakin?',
+                        text: "Delete Buku " + propertyName + "?",
                         icon: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: '#3085d6',
                         cancelButtonColor: '#d33',
-                        confirmButtonText: 'Yes, delete it!'
+                        confirmButtonText: 'Ya, Hapus Buku ini'
                     }).then((result) => {
                         if (result.isConfirmed) {
                             // Kirim DELETE request manual lewat JavaScript
