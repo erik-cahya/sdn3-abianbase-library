@@ -1,18 +1,27 @@
 <div class="top-navbar flex-between gap-16">
 
     <div class="flex-align gap-16">
+        <!-- Toggle Button Start -->
+        <button type="button" class="toggle-btn d-xl-none d-flex text-26 text-gray-500"><i
+                class="ph ph-list"></i></button>
+        <!-- Toggle Button End -->
 
     </div>
 
     <div class="flex-align gap-16">
+        <div class="flex-align gap-8">
+
+        </div>
 
         <!-- User Profile Start -->
         <div class="dropdown">
-            <button class="users arrow-down-icon rounded-pill d-inline-block position-relative border border-gray-200 p-4 pe-40" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button
+                class="users arrow-down-icon rounded-pill d-inline-block position-relative border border-gray-200 p-4 pe-40"
+                type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <span class="position-relative">
                     <img src="{{ asset('admin') }}/assets/images/thumbs/user-img.png" alt="Image" class="rounded-circle h-32 w-32">
-                    <span class="activation-badge position-absolute inset-block-end-0 inset-inline-end-0 h-8 w-8"></span>
-
+                    <span
+                        class="activation-badge position-absolute inset-block-end-0 inset-inline-end-0 h-8 w-8"></span>
                 </span>
             </button>
             <div class="dropdown-menu dropdown-menu--lg border-0 bg-transparent p-0">
@@ -34,11 +43,15 @@
                             </li>
 
                             <li class="border-top border-gray-100 pt-8">
-                                <a href="sign-in.html" class="text-15 hover-bg-danger-50 hover-text-danger-600 rounded-8 flex-align fw-medium text-15 gap-8 px-20 py-12 text-gray-300">
-                                    <span class="text-danger-600 d-flex text-2xl"><i class="ph ph-sign-out"></i></span>
-                                    <span class="text">Log Out</span>
-                                </a>
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <a class="text-15 hover-bg-danger-50 hover-text-danger-600 rounded-8 flex-align fw-medium text-15 gap-8 px-20 py-12 text-gray-300" href="{{ route('logout') }}" onclick="event.preventDefault();this.closest('form').submit();">
+                                        <span class="text-danger-600 d-flex text-2xl"><i class="ph ph-sign-out"></i></span>
+                                        <iconify-icon icon="solar:logout-3-broken" class="fs-18 align-middle"></iconify-icon><span class="align-middle">Logout</span>
+                                    </a>
+                                </form>
                             </li>
+
                         </ul>
                     </div>
                 </div>
