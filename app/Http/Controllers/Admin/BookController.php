@@ -12,7 +12,13 @@ class BookController extends Controller
     public function index()
     {
         // $data['kategori'] = CategoryModel::get();
-        $data['data_buku'] = BooksModel::join('kategori', 'kategori.id', '=', 'books.id_kategori')->get();
+        $data['data_buku'] = BooksModel::join('kategori', 'kategori.id', '=', 'books.id_kategori')
+            ->select(
+                'books.*',
+                'kategori.nama_kategori'
+            )->get();
+
+        // dd($data['data_buku']);
         return view('admin.books.index', $data);
     }
 
@@ -54,5 +60,19 @@ class BookController extends Controller
             'swalFlashIcon' => 'success',
         ];
         return redirect()->route('buku.index')->with('flashData', $flashData);
+    }
+
+    public function destroy(string $id)
+    {
+
+        BooksModel::destroy($id);
+
+        $flashData = [
+            'judul' => 'Delete Success',
+            'pesan' => 'Data Buku Telah Dihapus',
+            'swalFlashIcon' => 'success',
+        ];
+
+        return response()->json($flashData);
     }
 }

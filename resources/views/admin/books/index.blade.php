@@ -108,7 +108,12 @@
 
                                         <div class="flex-between mt-24 flex-wrap gap-4">
 
-                                            <a href="course-details.html" class="btn btn-danger rounded-pill py-9">Delete</a>
+                                            {{-- <a href="course-details.html" class="btn btn-danger rounded-pill py-9">Delete</a> --}}
+
+                                            {{-- Delete Button --}}
+                                            <input type="hidden" class="propertyId" value="{{ $buku->id }}">
+                                            <button type="button" class="btn btn-danger rounded-pill deleteButton py-9" data-nama="{{ $buku->nama_buku }}">Delete</button>
+                                            {{-- /. Delete Button --}}
                                             <a href="course-details.html" class="btn btn-outline-main rounded-pill py-9">Details</a>
                                         </div>
                                     </div>
@@ -159,6 +164,60 @@
     </div>
 @endsection
 @push('script')
+    {{-- Sweet Alert --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Saat halaman sudah ready
+            const deleteButtons = document.querySelectorAll('.deleteButton');
+
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    let propertyName = this.getAttribute('data-nama');
+                    let propertyId = this.parentElement.querySelector('.propertyId').value;
+
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: "Delete property " + propertyId + "?",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Kirim DELETE request manual lewat JavaScript
+                            fetch('/buku/' + propertyId, {
+                                    method: 'DELETE',
+                                    headers: {
+                                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                        'Content-Type': 'application/json'
+                                    }
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                    Swal.fire({
+                                        title: data.judul,
+                                        text: data.pesan,
+                                        icon: data.swalFlashIcon,
+                                        timer: 2000,
+                                    }).then(() => {
+                                        // Reload setelah user menutup SweetAlert
+                                        window.location.reload();
+                                    });
+
+                                })
+                                .catch(error => {
+                                    console.error('Error:', error);
+                                    Swal.fire('Error', 'Something went wrong!', 'error');
+                                });
+                        }
+                    });
+                });
+            });
+        });
+    </script>
     <script>
         // ========================== Range Slider Js Start =====================
         $(function() {
